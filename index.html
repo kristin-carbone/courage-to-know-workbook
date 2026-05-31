@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Courage to Know — Complete Workbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black:   #1a1814;
+    --gold:    #b89a5a;
+    --gold-lt: #d4b87a;
+    --cream:   #f8f4ee;
+    --ivory:   #faf7f2;
+    --taupe:   #e8e0d4;
+    --taupe-dk:#c8bfb0;
+    --text:    #2c2820;
+    --text-lt: #6b6358;
+  }
+  html { font-size: 16px; }
+  body { font-family: 'Jost', sans-serif; font-weight: 300; color: var(--text); background: #e8e2da; line-height: 1.7; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none !important; margin: 0 !important; }
+    @page { size: 8.5in 11in; margin: 0; }
+    .pb { page-break-before: always; }
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 32px;
+    padding: 0.8in 0.9in;
+    background: var(--ivory);
+    box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-dark { background: var(--black); color: var(--cream); }
+  .page-cream { background: var(--cream); }
+
+  /* GOLD LINES */
+  .gl { width:100%; height:0.5px; background:var(--gold); margin:24px 0; opacity:0.55; }
+  .gl-s { width:48px; height:1px; background:var(--gold); margin:18px 0; }
+  .gl-c { width:80px; height:1px; background:var(--gold); margin:22px auto; }
+
+  /* TYPE */
+  h1,h2,h3,h4,.serif { font-family:'Cormorant Garamond',serif; }
+  .eyebrow { font-family:'Jost',sans-serif; font-size:9px; font-weight:500; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+  .eyebrow-dk { color:rgba(184,154,90,0.75); }
+  h2 { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; letter-spacing:0.02em; line-height:1.15; margin-bottom:16px; }
+  h3 { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; letter-spacing:0.01em; margin-bottom:10px; }
+  .body { font-size:13px; line-height:1.85; font-weight:300; color:var(--text); }
+  .body-dk { color:rgba(248,244,238,0.8); }
+  .italic { font-family:'Cormorant Garamond',serif; font-style:italic; }
+  .spacer { flex:1; }
+
+  /* QUOTE BLOCK */
+  .qblock { border-left:1px solid var(--gold); padding:10px 26px; margin:24px 0; }
+  .qblock-dk { border-left-color:rgba(184,154,90,0.5); }
+  .qtext { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; font-weight:300; line-height:1.6; color:var(--text); }
+  .qtext-dk { color:rgba(248,244,238,0.78); }
+
+  /* KRISTIN BOX */
+  .kbox { background:var(--black); padding:32px 36px; margin:28px 0; position:relative; }
+  .kbox::before,.kbox::after { content:''; position:absolute; left:0; right:0; height:1px; background:var(--gold); opacity:0.45; }
+  .kbox::before { top:0; } .kbox::after { bottom:0; }
+  .kbox-label { font-family:'Jost',sans-serif; font-size:8.5px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+  .kbox-text { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16.5px; line-height:1.85; color:rgba(248,244,238,0.82); font-weight:300; }
+
+  /* WRITE LINES */
+  .wl { width:100%; height:1px; background:var(--taupe-dk); margin:26px 0 0; opacity:0.55; }
+  .prompt { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:14.5px; color:var(--text-lt); margin-bottom:14px; line-height:1.5; }
+  .write-block { margin-bottom:32px; }
+
+  /* SIGN COLS */
+  .sign-cols { display:grid; grid-template-columns:1fr 1fr; gap:0 38px; }
+  .sign-entry { padding:14px 0; border-bottom:0.5px solid rgba(184,154,90,0.2); }
+  .sign-entry:last-child { border-bottom:none; }
+  .sign-name { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:500; color:var(--text); margin-bottom:3px; }
+  .sign-dates { font-size:9px; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+  .sign-desc { font-size:11.5px; font-weight:300; color:var(--text-lt); line-height:1.65; }
+
+  /* PLANET GRID */
+  .pgrid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; border:0.5px solid rgba(184,154,90,0.25); }
+  .pcell { padding:18px 20px; border-right:0.5px solid rgba(184,154,90,0.25); border-bottom:0.5px solid rgba(184,154,90,0.25); }
+  .pcell:nth-child(3n) { border-right:none; }
+  .pcell-name { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:var(--gold); margin-bottom:3px; }
+  .pcell-desc { font-size:11px; font-weight:300; color:var(--text-lt); line-height:1.6; }
+
+  /* BIG 3 */
+  .big3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin:28px 0; }
+  .b3cell { border:0.5px solid rgba(184,154,90,0.4); padding:26px 22px; text-align:center; background:rgba(184,154,90,0.03); }
+  .b3planet { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:400; color:var(--gold); margin-bottom:4px; }
+  .b3sym { font-size:24px; color:rgba(184,154,90,0.45); margin-bottom:12px; display:block; }
+  .b3label { font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--text-lt); margin-bottom:18px; }
+  .b3line { width:100%; height:1px; background:var(--taupe-dk); margin-top:28px; opacity:0.55; }
+
+  /* PILLARS */
+  .pillars { display:flex; gap:0; margin:20px 0; border:0.5px solid rgba(184,154,90,0.3); }
+  .pillar { flex:1; padding:26px 22px; border-right:0.5px solid rgba(184,154,90,0.3); }
+  .pillar:last-child { border-right:none; }
+  .pillar-num { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:rgba(184,154,90,0.3); display:block; margin-bottom:8px; }
+  .pillar-title { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:500; color:var(--gold); margin-bottom:7px; }
+  .pillar-desc { font-size:11.5px; font-weight:300; color:var(--text-lt); line-height:1.7; }
+
+  /* TEACHING LINE */
+  .tl { background:rgba(184,154,90,0.06); border-left:2px solid var(--gold); padding:12px 18px; margin:14px 0 22px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:14.5px; color:var(--text); line-height:1.55; }
+  .tl-dk { background:rgba(184,154,90,0.07); border-left-color:rgba(184,154,90,0.5); color:rgba(248,244,238,0.75); }
+
+  /* REACTION FLOW */
+  .flow { display:flex; align-items:flex-start; gap:0; margin:24px 0; }
+  .flow-step { flex:1; padding:20px 18px; border-right:0.5px solid rgba(184,154,90,0.25); position:relative; }
+  .flow-step:last-child { border-right:none; }
+  .flow-num { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:rgba(184,154,90,0.3); display:block; margin-bottom:6px; }
+  .flow-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:var(--gold); margin-bottom:5px; }
+  .flow-desc { font-size:11px; font-weight:300; color:var(--text-lt); line-height:1.65; }
+
+  /* SCENARIO BOX */
+  .scenario { background:rgba(184,154,90,0.04); border:0.5px solid rgba(184,154,90,0.25); padding:24px 26px; margin:16px 0; }
+  .scenario-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:var(--gold); margin-bottom:8px; }
+  .scenario-body { font-size:12px; font-weight:300; color:var(--text-lt); line-height:1.7; margin-bottom:10px; }
+  .scenario-prompt { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px; color:var(--text); }
+
+  /* PAGE NUMBER */
+  .pn { position:absolute; bottom:0.42in; right:0.9in; font-size:9px; letter-spacing:0.25em; color:var(--gold); opacity:0.55; font-weight:400; }
+  .pn-l { right:auto; left:0.9in; }
+
+  /* TWO COL */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:36px; }
+
+  /* COVER */
+  .cover-eyebrow { font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:56px; }
+  .cover-week { font-family:'Jost',sans-serif; font-size:9.5px; letter-spacing:0.38em; text-transform:uppercase; color:rgba(184,154,90,0.7); margin-bottom:20px; }
+  .cover-title { font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; line-height:1.0; letter-spacing:0.04em; color:var(--cream); margin-bottom:28px; }
+  .cover-tag { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px; font-weight:300; color:rgba(248,244,238,0.55); line-height:1.65; max-width:360px; }
+
+  /* REFRAME */
+  .reframe-pair { margin-bottom:24px; padding-bottom:24px; border-bottom:0.5px solid rgba(184,154,90,0.2); }
+  .reframe-pair:last-child { border-bottom:none; }
+  .reframe-old { font-size:12.5px; font-weight:300; color:var(--text-lt); margin-bottom:6px; }
+  .reframe-new { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:var(--gold); line-height:1.55; }
+
+  /* STAR MARK */
+  .star { display:inline-block; width:5px; height:5px; border-radius:50%; background:var(--gold); margin-right:10px; vertical-align:middle; opacity:0.7; }
+
+  /* CONNECTION MAP */
+  .cmap-row { padding:16px 0; border-bottom:0.5px solid rgba(184,154,90,0.2); }
+  .cmap-row:last-child { border-bottom:none; }
+  .cmap-label { font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+  .cmap-planet { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:500; color:var(--text); margin-bottom:8px; }
+
+  /* UTIL */
+  .mt8{margin-top:8px;}.mt16{margin-top:16px;}.mt24{margin-top:24px;}.mt32{margin-top:32px;}.mt40{margin-top:40px;}.mt48{margin-top:48px;}.mt56{margin-top:56px;}
+  .mb8{margin-bottom:8px;}.mb16{margin-bottom:16px;}.mb24{margin-bottom:24px;}.mb32{margin-bottom:32px;}
+</style>
+</head>
+<body>
+<!-- ═══════════════════════════════════════════════════════
+     PROGRAM COVER
+═══════════════════════════════════════════════════════ -->
+<div class="page page-dark">
+  <div class="cover-eyebrow">The Courage to Know</div>
+  <div class="spacer"></div>
+  <div>
+    <div class="cover-week">Complete Workbook · Six Weeks</div>
+    <div class="cover-title">Courage<br>to Know</div>
+    <div class="gl-s"></div>
+    <div class="cover-tag mt16">Astrology for Emotional Awareness<br>+ Motherhood</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.38);">Kristin · The Courage to Know</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:44px;color:rgba(184,154,90,0.22);letter-spacing:0.12em;">☽ ☉ ↑</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     WEEK 1 COVER
+═══════════════════════════════════════════════════════ -->
+<div class="page page-dark pb">
+  <div class="cover-eyebrow">The Courage to Know</div>
+  <div class="spacer"></div>
+  <div>
+    <div class="cover-week">Week One</div>
+    <div class="cover-title">Understanding<br>Yourself</div>
+    <div class="gl-s"></div>
+    <div class="cover-tag mt16">Astrology for Emotional Awareness<br>+ Motherhood</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.38);">Week One of Six</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:44px;color:rgba(184,154,90,0.22);letter-spacing:0.12em;">☽ ☉ ↑</div>
+  </div>
+</div>
+
+<!-- YOUR CHART IS NOT A SENTENCE -->
+<div class="page page-dark pb">
+  <div class="eyebrow eyebrow-dk">Opening</div>
+  <div class="spacer"></div>
+  <div>
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(184,154,90,0.55);margin-bottom:32px;">Your Chart Is Not a Sentence.</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:var(--cream);line-height:1.05;letter-spacing:0.03em;margin-bottom:36px;">"It's a mirror."</div>
+    <div class="gl-s"></div>
+    <div class="mt28" style="max-width:500px;margin-top:28px;">
+      <p class="body body-dk mb16">Your chart is not here to define you. It's not here to tell you who you are forever. And it's not here to put you in a box.</p>
+      <p class="body body-dk mb16">Your chart is a map of <em class="italic" style="color:var(--gold-lt);">patterns.</em></p>
+      <div style="margin:26px 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:rgba(184,154,90,0.75);line-height:2.0;">
+        Patterns in how you think.<br>Patterns in how you feel.<br>Patterns in how you react.<br>Patterns in how you protect yourself.<br>Patterns in how you love.
+      </div>
+      <p class="body body-dk">And once you begin to understand those patterns… you begin to create <em class="italic" style="color:var(--gold-lt);">choice.</em></p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <span class="pn">2</span>
+</div>
+
+<!-- WELCOME -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Welcome</div>
+  <h2 style="max-width:400px;">Welcome to<br>The Courage to Know</h2>
+  <div class="gl"></div>
+  <p class="body mb16">In <em class="italic">The Courage to Grow</em>, we talked about what it means to face yourself. To recognize what's no longer working. To stop avoiding. To grow through discomfort instead of around it.</p>
+  <p class="body mb16">This work is the next step. Because a lot of the time… we try to change our reactions without understanding where they come from. We try to fix patterns we haven't fully seen yet.</p>
+  <p class="body mb16">And especially in motherhood… it's easy to judge ourselves before we understand ourselves.</p>
+  <div class="qblock mt24 mb24"><div class="qtext">This course is not about becoming a perfect mother.<br>It's about becoming a more aware one.</div></div>
+  <p class="body">And astrology can help us do that. Not because your chart predicts your life — but because it helps reveal the emotional patterns underneath how you move through it.</p>
+  <div class="gl mt32"></div>
+  <div class="eyebrow mt24">How to Use This Workbook</div>
+  <p class="body mb24">This workbook is designed to support your awareness throughout this journey. There is no right way to do this. You simply need to stay curious.</p>
+  <div class="two-col">
+    <div>
+      <div class="body mb12"><span class="star"></span>Awareness matters more than perfection.</div>
+      <div class="body mb12"><span class="star"></span>Go slowly.</div>
+      <div class="body mb12"><span class="star"></span>Be honest with yourself.</div>
+    </div>
+    <div>
+      <div class="body mb12"><span class="star"></span>Notice what resonates emotionally.</div>
+      <div class="body mb12"><span class="star"></span>Return to pages more than once.</div>
+      <div class="body mb12"><span class="star"></span>Let this be a conversation with yourself.</div>
+    </div>
+  </div>
+  <span class="pn">3</span>
+</div>
+
+<!-- 3 PILLARS + ASTROLOGY BASICS -->
+<div class="page pb">
+  <div class="eyebrow">The Foundation</div>
+  <h2>The 3 Pillars of This Work</h2>
+  <div class="gl"></div>
+  <div class="pillars mt24">
+    <div class="pillar"><span class="pillar-num">01</span><div class="pillar-title">Self-Understanding Through Chart Archetypes</div><p class="pillar-desc">Learning your emotional wiring, natural tendencies, and core patterns.</p></div>
+    <div class="pillar"><span class="pillar-num">02</span><div class="pillar-title">Parenting Patterns + Emotional Awareness</div><p class="pillar-desc">Understanding how your chart shows up in reactions, emotional triggers, communication, and connection.</p></div>
+    <div class="pillar"><span class="pillar-num">03</span><div class="pillar-title">Motherhood Transitions + Identity Rebirth</div><p class="pillar-desc">Recognizing how motherhood changes you — and who you are becoming now.</p></div>
+  </div>
+  <div class="gl mt40"></div>
+  <div class="eyebrow mt28">Astrology Basics</div>
+  <h3>The Birth Chart</h3>
+  <p class="body mb20">Your birth chart is a snapshot of the sky at the exact moment you were born. It shows where the planets were, what signs they were in, and which areas of life they influence most strongly.</p>
+  <div style="background:rgba(184,154,90,0.05);border:0.5px solid rgba(184,154,90,0.28);padding:20px 26px;">
+    <div class="italic" style="font-family:'Cormorant Garamond',serif;font-size:14.5px;color:var(--text-lt);line-height:1.8;">You do not need to memorize everything. For this course, we are focusing on understanding how these placements show up <em style="color:var(--text);">emotionally and relationally.</em></div>
+  </div>
+  <span class="pn">4</span>
+</div>
+
+<!-- BIG 3 -->
+<div class="page page-dark pb">
+  <div class="eyebrow eyebrow-dk">Astrology Essentials</div>
+  <h2 style="color:var(--cream);font-size:46px;">The Big 3</h2>
+  <div class="gl" style="opacity:0.28;"></div>
+  <div style="margin:32px 0;">
+    <div style="display:flex;gap:22px;align-items:flex-start;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;color:rgba(184,154,90,0.32);flex-shrink:0;padding-top:2px;">☉</div>
+      <div><div class="eyebrow eyebrow-dk mb8">Sun Sign</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--cream);margin-bottom:12px;line-height:1.55;">Your core identity. Your conscious self.<br>How you naturally lead and parent when grounded.</div>
+      <div class="tl tl-dk">"When I'm at my best, I parent like my Sun."</div></div>
+    </div>
+  </div>
+  <div style="height:0.5px;background:rgba(184,154,90,0.18);"></div>
+  <div style="margin:32px 0;">
+    <div style="display:flex;gap:22px;align-items:flex-start;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;color:rgba(184,154,90,0.32);flex-shrink:0;padding-top:2px;">☽</div>
+      <div><div class="eyebrow eyebrow-dk mb8">Moon Sign</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--cream);margin-bottom:12px;line-height:1.55;">Your emotional world and needs. What helps you feel safe — and what happens when you're overwhelmed.</div>
+      <div class="tl tl-dk">"When I'm triggered, my Moon often takes over."</div></div>
+    </div>
+  </div>
+  <div style="height:0.5px;background:rgba(184,154,90,0.18);"></div>
+  <div style="margin:32px 0;">
+    <div style="display:flex;gap:22px;align-items:flex-start;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;color:rgba(184,154,90,0.32);flex-shrink:0;padding-top:2px;">↑</div>
+      <div><div class="eyebrow eyebrow-dk mb8">Rising Sign</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--cream);margin-bottom:12px;line-height:1.55;">How others experience you. The energy your child may encounter first.</div>
+      <div class="tl tl-dk">"My child may experience me through my Rising sign."</div></div>
+    </div>
+  </div>
+  <span class="pn">5</span>
+</div>
+
+<!-- PLANET CHEAT SHEET + DATE GRID -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Reference</div>
+  <h2>Planet Cheat Sheet</h2>
+  <div class="gl"></div>
+  <div class="pgrid mt24" style="border:0.5px solid rgba(184,154,90,0.25);">
+    <div class="pcell"><div class="pcell-name">☉ Sun</div><div class="pcell-desc">Identity · Purpose · Conscious Self</div></div>
+    <div class="pcell"><div class="pcell-name">☽ Moon</div><div class="pcell-desc">Emotions · Needs · Emotional Safety</div></div>
+    <div class="pcell"><div class="pcell-name">↑ Rising</div><div class="pcell-desc">First Impression · Outward Energy</div></div>
+    <div class="pcell"><div class="pcell-name">☿ Mercury</div><div class="pcell-desc">Communication · Thought Patterns</div></div>
+    <div class="pcell"><div class="pcell-name">♀ Venus</div><div class="pcell-desc">Connection · Love · Relationships</div></div>
+    <div class="pcell" style="border-right:none;"><div class="pcell-name">♂ Mars</div><div class="pcell-desc">Reactions · Anger · Action</div></div>
+    <div class="pcell" style="grid-column:1/-1;border-bottom:none;border-right:none;"><div class="pcell-name">♄ Saturn</div><div class="pcell-desc">Pressure · Responsibility · Growth</div></div>
+  </div>
+  <div class="gl mt40"></div>
+  <div class="eyebrow mt24 mb20">Sun Sign Dates — Quick Reference</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:0.5px solid rgba(184,154,90,0.2);">
+    <div style="padding:11px 16px;border-right:0.5px solid rgba(184,154,90,0.2);border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Aries</div><div class="sign-dates">Mar 21 – Apr 19</div></div>
+    <div style="padding:11px 16px;border-right:0.5px solid rgba(184,154,90,0.2);border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Taurus</div><div class="sign-dates">Apr 20 – May 20</div></div>
+    <div style="padding:11px 16px;border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Gemini</div><div class="sign-dates">May 21 – Jun 20</div></div>
+    <div style="padding:11px 16px;border-right:0.5px solid rgba(184,154,90,0.2);border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Cancer</div><div class="sign-dates">Jun 21 – Jul 22</div></div>
+    <div style="padding:11px 16px;border-right:0.5px solid rgba(184,154,90,0.2);border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Leo</div><div class="sign-dates">Jul 23 – Aug 22</div></div>
+    <div style="padding:11px 16px;border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Virgo</div><div class="sign-dates">Aug 23 – Sep 22</div></div>
+    <div style="padding:11px 16px;border-right:0.5px solid rgba(184,154,90,0.2);border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Libra</div><div class="sign-dates">Sep 23 – Oct 22</div></div>
+    <div style="padding:11px 16px;border-right:0.5px solid rgba(184,154,90,0.2);border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Scorpio</div><div class="sign-dates">Oct 23 – Nov 21</div></div>
+    <div style="padding:11px 16px;border-bottom:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Sagittarius</div><div class="sign-dates">Nov 22 – Dec 21</div></div>
+    <div style="padding:11px 16px;border-right:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Capricorn</div><div class="sign-dates">Dec 22 – Jan 19</div></div>
+    <div style="padding:11px 16px;border-right:0.5px solid rgba(184,154,90,0.2);"><div class="sign-name" style="font-size:13.5px;">Aquarius</div><div class="sign-dates">Jan 20 – Feb 18</div></div>
+    <div style="padding:11px 16px;"><div class="sign-name" style="font-size:13.5px;">Pisces</div><div class="sign-dates">Feb 19 – Mar 20</div></div>
+  </div>
+  <span class="pn">6</span>
+</div>
+
+<!-- SUN SIGNS THROUGH MOTHERHOOD -->
+<div class="page pb">
+  <div class="eyebrow">Sun Sign Guide</div>
+  <h2>Sun Signs Through Motherhood</h2>
+  <div class="gl"></div>
+  <div class="sign-cols mt20">
+    <div>
+      <div class="sign-entry"><div class="sign-name">Aries</div><div class="sign-desc">Protective, direct, action-oriented. May become impatient or reactive under pressure.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus</div><div class="sign-desc">Grounded, dependable, stabilizing. May resist change or become emotionally stuck.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini</div><div class="sign-desc">Curious, communicative, mentally engaged. May over-explain or struggle to slow down emotionally.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer</div><div class="sign-desc">Nurturing, emotionally connected, protective. May over-worry or emotionally absorb too much.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo</div><div class="sign-desc">Warm, expressive, encouraging. May take things personally or need appreciation.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo</div><div class="sign-desc">Supportive, attentive, thoughtful. May over-manage or become self-critical.</div></div>
+    </div>
+    <div>
+      <div class="sign-entry"><div class="sign-name">Libra</div><div class="sign-desc">Harmonizing, relational, understanding. May avoid conflict or over-accommodate.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio</div><div class="sign-desc">Emotionally deep, loyal, perceptive. May become controlling or emotionally guarded.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius</div><div class="sign-desc">Encouraging, growth-oriented, optimistic. May avoid emotional heaviness or become blunt.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn</div><div class="sign-desc">Responsible, structured, dependable. May over-function or tie worth to performance.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius</div><div class="sign-desc">Independent, insightful, emotionally objective. May detach emotionally or intellectualize feelings.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces</div><div class="sign-desc">Compassionate, intuitive, emotionally giving. May over-sacrifice or struggle with boundaries.</div></div>
+    </div>
+  </div>
+  <span class="pn">7</span>
+</div>
+
+<!-- MOON SIGNS -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Moon Sign Guide</div>
+  <h2>Moon Signs — Emotional Needs</h2>
+  <div class="gl"></div>
+  <div class="tl mt16 mb24">"When I'm triggered, my Moon often takes over."</div>
+  <div class="sign-cols">
+    <div>
+      <div class="sign-entry"><div class="sign-name">Aries Moon</div><div class="sign-desc">Needs space, movement, and emotional release. Can react quickly when overwhelmed.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Moon</div><div class="sign-desc">Needs calm, stability, and grounding. Can become resistant or emotionally shut down under stress.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Moon</div><div class="sign-desc">Needs communication and mental processing. Can become anxious or scattered emotionally.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Moon</div><div class="sign-desc">Needs reassurance and emotional safety. Can become protective or reactive when hurt.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Moon</div><div class="sign-desc">Needs appreciation and emotional recognition. Can feel deeply hurt when unseen.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Moon</div><div class="sign-desc">Needs clarity, order, and emotional usefulness. Can become critical or overwhelmed trying to fix everything.</div></div>
+    </div>
+    <div>
+      <div class="sign-entry"><div class="sign-name">Libra Moon</div><div class="sign-desc">Needs harmony and emotional connection. Can avoid conflict to maintain peace.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Moon</div><div class="sign-desc">Needs trust and emotional honesty. Can become guarded or emotionally intense when unsafe.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Moon</div><div class="sign-desc">Needs freedom and perspective. Can avoid emotional heaviness or intensity.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Moon</div><div class="sign-desc">Needs reliability and emotional steadiness. Can suppress emotions or carry too much responsibility.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Moon</div><div class="sign-desc">Needs space and emotional independence. Can detach emotionally when overwhelmed.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Moon</div><div class="sign-desc">Needs softness, rest, and emotional compassion. Can absorb too much emotionally or struggle with boundaries.</div></div>
+    </div>
+  </div>
+  <span class="pn">8</span>
+</div>
+
+<!-- RISING SIGNS -->
+<div class="page pb">
+  <div class="eyebrow">Rising Sign Guide</div>
+  <h2>Rising Signs —<br>How Others Experience You</h2>
+  <div class="gl"></div>
+  <div class="tl mt16 mb24">"My child may experience me through my Rising sign."</div>
+  <div class="sign-cols">
+    <div>
+      <div class="sign-entry"><div class="sign-name">Aries Rising</div><div class="sign-desc">Direct, strong, fast-moving. May feel intense or reactive to others.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Rising</div><div class="sign-desc">Grounded, calming, steady. May feel emotionally immovable.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Rising</div><div class="sign-desc">Talkative, curious, mentally active. May feel scattered or overstimulating.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Rising</div><div class="sign-desc">Protective, nurturing, emotionally aware. May feel emotionally watchful.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Rising</div><div class="sign-desc">Warm, expressive, confident. May feel strong or emotionally present.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Rising</div><div class="sign-desc">Helpful, observant, detail-oriented. May feel correcting or overly attentive.</div></div>
+    </div>
+    <div>
+      <div class="sign-entry"><div class="sign-name">Libra Rising</div><div class="sign-desc">Friendly, relational, socially aware. May feel overly accommodating.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Rising</div><div class="sign-desc">Intense, perceptive, emotionally penetrating. May feel emotionally all-seeing.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Rising</div><div class="sign-desc">Encouraging, open, energetic. May feel restless or hard to pin down emotionally.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Rising</div><div class="sign-desc">Structured, composed, responsible. May feel serious or emotionally contained.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Rising</div><div class="sign-desc">Independent, unique, detached. May feel emotionally distant at times.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Rising</div><div class="sign-desc">Soft, compassionate, intuitive. May feel emotionally porous or hard to read.</div></div>
+    </div>
+  </div>
+  <span class="pn">9</span>
+</div>
+
+<!-- KRISTIN REFLECTION + PROMPTS -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Personal Reflection</div>
+  <h2 style="margin-bottom:8px;">A Note from Kristin</h2>
+  <div class="kbox mt20">
+    <div class="kbox-label">Kristin's Reflection</div>
+    <div class="kbox-text">For a long time, I thought I was reacting to what was happening around me.<br><br>What my daughter said. What wasn't getting done. How disconnected things felt.<br><br>But when I started really looking at my patterns through astrology… I realized something deeper was happening.<br><br>I wasn't just reacting to the moment. I was reacting to what the moment made me feel about myself.<br><br>And once I could see that… everything started making more sense.</div>
+  </div>
+  <div class="gl mt32"></div>
+  <div class="eyebrow mt28">Your Turn</div>
+  <div class="write-block mt20">
+    <div class="prompt">What brought me to this work?</div>
+    <div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  </div>
+  <div class="write-block">
+    <div class="prompt">Where do I currently feel the most overwhelmed, disconnected, guilty, or unsure as a mother?</div>
+    <div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  </div>
+  <span class="pn">10</span>
+</div>
+
+<!-- MY BIG 3 + INTEGRATION -->
+<div class="page pb">
+  <div class="eyebrow">Discovery</div>
+  <h2>My Big 3</h2>
+  <p class="body mb24" style="max-width:460px;">Look up your birth chart at astro.com — you'll need your birth date, birth time, and birthplace.</p>
+  <div class="big3">
+    <div class="b3cell"><span class="b3sym">☉</span><div class="b3planet">Sun</div><div class="b3label">Core Identity</div><div class="b3line"></div><div class="b3line" style="margin-top:18px;"></div></div>
+    <div class="b3cell"><span class="b3sym">☽</span><div class="b3planet">Moon</div><div class="b3label">Emotional World</div><div class="b3line"></div><div class="b3line" style="margin-top:18px;"></div></div>
+    <div class="b3cell"><span class="b3sym">↑</span><div class="b3planet">Rising</div><div class="b3label">How You're Experienced</div><div class="b3line"></div><div class="b3line" style="margin-top:18px;"></div></div>
+  </div>
+  <div class="gl mt40"></div>
+  <div class="eyebrow mt28">Integration — Complete the Sentences</div>
+  <div class="write-block mt24">
+    <div class="prompt">When I'm at my best, I parent like my Sun by…</div>
+    <div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  </div>
+  <div class="write-block">
+    <div class="prompt">When I'm emotionally overwhelmed, my Moon tends to…</div>
+    <div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  </div>
+  <div class="write-block">
+    <div class="prompt">My child may experience me through my Rising sign as…</div>
+    <div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  </div>
+  <span class="pn">11</span>
+</div>
+
+<!-- DEEPER REFLECTION -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Going Deeper</div>
+  <h2>What I'm Noticing</h2>
+  <div class="gl"></div>
+  <div class="write-block mt28"><div class="prompt">What surprised me about my chart?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What feels accurate?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What makes more sense about me now?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">12</span>
+</div>
+
+<!-- WEEK 1 CLOSING -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div style="text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:38px;color:rgba(184,154,90,0.28);letter-spacing:0.18em;margin-bottom:52px;">☽ ☉ ↑</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:25px;font-weight:300;color:rgba(248,244,238,0.72);line-height:1.65;margin-bottom:36px;">"This isn't about labeling yourself."<br>"It's about understanding yourself."</div>
+    <div class="gl-c" style="opacity:0.35;"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;font-weight:300;color:rgba(248,244,238,0.48);line-height:1.8;margin-top:34px;">"You are not your patterns."<br>"But becoming aware of them changes everything."</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.35);">The Courage to Know · Week 1</div>
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.2em;color:rgba(184,154,90,0.3);">© Kristin</div>
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════════════════
+     WEEK 2 COVER
+═══════════════════════════════════════════════════════ -->
+<div class="page page-dark pb">
+  <div class="cover-eyebrow">The Courage to Know</div>
+  <div class="spacer"></div>
+  <div>
+    <div class="cover-week">Week Two</div>
+    <div class="cover-title">Understanding<br>Your Reactions</div>
+    <div class="gl-s"></div>
+    <div class="cover-tag mt16">Your Emotional Patterns<br>Are Not Random</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.38);">Week Two of Six</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:44px;color:rgba(184,154,90,0.22);letter-spacing:0.12em;">☽ ☉ ↑</div>
+  </div>
+</div>
+
+<!-- WEEK 2 OPENING DIVIDER -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div>
+    <div class="eyebrow eyebrow-dk mb24">Week Two</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:28px;">Understanding<br>Your Reactions</div>
+    <div class="gl-s"></div>
+    <div class="qblock qblock-dk mt32"><div class="qtext qtext-dk">"Your reactions are often trying to protect something."</div></div>
+  </div>
+  <div class="spacer"></div>
+  <span class="pn">14</span>
+</div>
+
+<!-- WHY DO I REACT LIKE THAT -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Opening Teaching</div>
+  <h2>Why Do I React Like That?</h2>
+  <div class="gl"></div>
+  <p class="body mb16">Have you ever found yourself saying: "Why did I get so upset?" "Why did that bother me so much?" "Why do I keep having the same argument?"</p>
+  <p class="body mb16">Most of us think we're reacting to what is happening in the moment. But often, we're reacting to what the moment <em class="italic">means</em> to us emotionally.</p>
+  <p class="body mb24">What gets activated underneath those moments is often much older: a need, a fear, an expectation, an emotional pattern.</p>
+  <div class="qblock mb24"><div class="qtext">This week isn't about judging your reactions.<br>It's about understanding them.</div></div>
+  <p class="body">Because awareness creates choice. And once you understand the pattern, you can begin responding differently.</p>
+  <span class="pn">15</span>
+</div>
+
+<!-- COURAGE PATTERN MODEL -->
+<div class="page pb">
+  <div class="eyebrow">The Courage Pattern Model™</div>
+  <h2>How Reactions Happen</h2>
+  <p class="body mb24">Most reactions follow a predictable sequence.</p>
+  <div class="gl"></div>
+  <div class="flow mt28" style="border:0.5px solid rgba(184,154,90,0.28);">
+    <div class="flow-step"><span class="flow-num">01</span><div class="flow-title">Trigger</div><div class="flow-desc">Something happens. A comment. A behavior. A situation.</div></div>
+    <div class="flow-step"><span class="flow-num">02</span><div class="flow-title">Feeling</div><div class="flow-desc">An emotion gets activated. Hurt. Fear. Frustration. Disappointment. Shame.</div></div>
+    <div class="flow-step"><span class="flow-num">03</span><div class="flow-title">Reaction</div><div class="flow-desc">You respond. Withdraw. Control. Criticize. Fix. Defend. Rescue. Shut down.</div></div>
+    <div class="flow-step"><span class="flow-num">04</span><div class="flow-title">Awareness</div><div class="flow-desc">You recognize the pattern. You begin seeing what is actually happening.</div></div>
+    <div class="flow-step" style="border-right:none;"><span class="flow-num">05</span><div class="flow-title">Choice</div><div class="flow-desc">You create a different response. Not perfectly. More consciously.</div></div>
+  </div>
+  <div style="text-align:center;margin:24px 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--gold);letter-spacing:0.05em;">Trigger → Feeling → Reaction → Awareness → Choice</div>
+  <div class="gl mt24"></div>
+  <div class="eyebrow mt28">Astrology and Reactions</div>
+  <p class="body mb20">Astrology helps us understand what is happening beneath the surface. This is where the chart becomes practical — not theoretical.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:0.5px solid rgba(184,154,90,0.25);">
+    <div style="padding:20px;border-right:0.5px solid rgba(184,154,90,0.25);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:rgba(184,154,90,0.45);margin-bottom:8px;">☉</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--gold);margin-bottom:6px;">Sun = Expectation</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">What you expect. What feels right. What you believe should happen.</div>
+    </div>
+    <div style="padding:20px;border-right:0.5px solid rgba(184,154,90,0.25);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:rgba(184,154,90,0.45);margin-bottom:8px;">☽</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--gold);margin-bottom:6px;">Moon = Feeling</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">How you emotionally experience what happened. What emotional need gets activated.</div>
+    </div>
+    <div style="padding:20px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:rgba(184,154,90,0.45);margin-bottom:8px;">♂</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--gold);margin-bottom:6px;">Mars = Reaction</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">How you respond. How you defend yourself. How you express frustration.</div>
+    </div>
+  </div>
+  <span class="pn">16</span>
+</div>
+
+<!-- KRISTIN W2 -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Personal Reflection</div>
+  <h2 style="margin-bottom:8px;">A Note from Kristin</h2>
+  <div class="kbox mt20">
+    <div class="kbox-label">Kristin's Reflection</div>
+    <div class="kbox-text">There was a moment after my daughter had a minor car accident.<br><br>Instead of allowing her to sit with the discomfort and responsibility of what happened… I immediately moved into protection. I defended her. I softened things. I tried to keep the peace.<br><br>At first, I thought I was helping. But later I realized something important.<br><br>I wasn't only reacting to the situation. I was reacting to my fear. Fear that she would feel unsupported. Fear that conflict would damage connection. Fear that if I didn't protect the situation, something would be lost.<br><br>Understanding that didn't make me a bad mom. It made me more aware.</div>
+  </div>
+  <div class="gl mt32"></div>
+  <div class="eyebrow mt28">Real Life Pattern Practice</div>
+  <div class="scenario mt20">
+    <div class="scenario-title">Scenario 1 — The One-Word Answer</div>
+    <div class="scenario-body">Your child comes home and barely acknowledges you after you've spent all day worrying about them.</div>
+    <div class="scenario-prompt mb8">Possible feelings: Rejected. Unappreciated. Unimportant.</div>
+    <div class="scenario-prompt">Possible reactions: Over-talking. Criticizing. Pulling away. Trying harder.</div>
+    <div style="margin-top:16px;"><div class="prompt" style="margin-bottom:8px;">What would YOU likely feel?</div><div class="wl"></div><div class="wl"></div></div>
+    <div style="margin-top:14px;"><div class="prompt" style="margin-bottom:8px;">What would YOU likely do?</div><div class="wl"></div><div class="wl"></div></div>
+  </div>
+  <span class="pn">17</span>
+</div>
+
+<!-- SCENARIOS 2+3 -->
+<div class="page pb">
+  <div class="eyebrow">Real Life Pattern Practice</div>
+  <h3 style="font-size:22px;font-weight:300;margin-bottom:20px;">Continued</h3>
+  <div class="scenario">
+    <div class="scenario-title">Scenario 2 — The Ignored Advice</div>
+    <div class="scenario-body">Your child ignores your advice and makes a decision you don't agree with.</div>
+    <div class="scenario-prompt mb8">Possible feelings: Fear. Loss of control. Helplessness.</div>
+    <div class="scenario-prompt">Possible reactions: Lecturing. Controlling. Repeating yourself.</div>
+    <div style="margin-top:16px;"><div class="prompt" style="margin-bottom:8px;">What would YOU likely feel?</div><div class="wl"></div><div class="wl"></div></div>
+    <div style="margin-top:14px;"><div class="prompt" style="margin-bottom:8px;">What would YOU likely do?</div><div class="wl"></div><div class="wl"></div></div>
+  </div>
+  <div class="scenario mt20">
+    <div class="scenario-title">Scenario 3 — The Silence</div>
+    <div class="scenario-body">Your child is upset but refuses to talk.</div>
+    <div class="scenario-prompt mb8">Possible feelings: Anxiety. Fear. Powerlessness.</div>
+    <div class="scenario-prompt">Possible reactions: Pushing for answers. Withdrawing. Assuming the worst.</div>
+    <div style="margin-top:16px;"><div class="prompt" style="margin-bottom:8px;">What would YOU likely feel?</div><div class="wl"></div><div class="wl"></div></div>
+    <div style="margin-top:14px;"><div class="prompt" style="margin-bottom:8px;">What would YOU likely do?</div><div class="wl"></div><div class="wl"></div></div>
+  </div>
+  <span class="pn">18</span>
+</div>
+
+<!-- MOON NEEDS + MARS CHEAT SHEET -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Reference</div>
+  <h2>Moon Needs + Mars Reactions</h2>
+  <div class="gl"></div>
+  <div class="two-col mt20">
+    <div>
+      <div class="eyebrow mb16">Moon — What Your Emotions Need</div>
+      <div class="sign-entry"><div class="sign-name">Aries Moon</div><div class="sign-desc">Needs movement, action, independence. May become impatient when upset.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Moon</div><div class="sign-desc">Needs stability and comfort. May shut down or become stubborn.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Moon</div><div class="sign-desc">Needs conversation and perspective. May overthink or become scattered.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Moon</div><div class="sign-desc">Needs reassurance and safety. May become protective or emotionally reactive.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Moon</div><div class="sign-desc">Needs recognition and warmth. May feel deeply unseen.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Moon</div><div class="sign-desc">Needs order and clarity. May criticize or over-function.</div></div>
+      <div class="sign-entry"><div class="sign-name">Libra Moon</div><div class="sign-desc">Needs harmony and fairness. May avoid conflict or over-accommodate.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Moon</div><div class="sign-desc">Needs trust and honesty. May become guarded or intense.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Moon</div><div class="sign-desc">Needs space and freedom. May avoid emotional heaviness.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Moon</div><div class="sign-desc">Needs reliability and competence. May suppress feelings.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Moon</div><div class="sign-desc">Needs space and autonomy. May emotionally detach.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Moon</div><div class="sign-desc">Needs compassion and rest. May absorb too much emotionally.</div></div>
+    </div>
+    <div>
+      <div class="eyebrow mb16">Mars — How You React Under Pressure</div>
+      <div class="sign-entry"><div class="sign-name">Aries Mars</div><div class="sign-desc">Immediate. Direct. Confrontational.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Mars</div><div class="sign-desc">Slow. Resistant. Can dig heels in.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Mars</div><div class="sign-desc">Verbal. Explaining. Arguing.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Mars</div><div class="sign-desc">Protective. Emotional. Indirect.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Mars</div><div class="sign-desc">Expressive. Passionate. Proud.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Mars</div><div class="sign-desc">Correcting. Fixing. Analyzing.</div></div>
+      <div class="sign-entry"><div class="sign-name">Libra Mars</div><div class="sign-desc">Avoiding conflict. Negotiating.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Mars</div><div class="sign-desc">Intense. Controlled. Strategic.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Mars</div><div class="sign-desc">Blunt. Independent. Freedom-seeking.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Mars</div><div class="sign-desc">Controlled. Responsible. Authoritative.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Mars</div><div class="sign-desc">Detached. Unpredictable. Independent.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Mars</div><div class="sign-desc">Avoidant. Sensitive. Indirect.</div></div>
+    </div>
+  </div>
+  <span class="pn">19</span>
+</div>
+
+<!-- MY PATTERN MAP -->
+<div class="page pb">
+  <div class="eyebrow">This Week's Practice</div>
+  <h2>My Pattern Map</h2>
+  <div class="gl"></div>
+  <p class="body mb28" style="max-width:480px;">Think about a recent interaction. Walk through the sequence honestly — without judgment.</p>
+  <div class="write-block"><div class="prompt">What happened?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What did I feel?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">How did I react?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What emotional need may have been underneath?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What am I beginning to notice about myself?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">20</span>
+</div>
+
+<!-- WEEK 2 CLOSING -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div style="text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:300;font-style:italic;color:rgba(248,244,238,0.72);line-height:1.7;margin-bottom:36px;">"You are not reacting because you are broken."<br>"You are reacting because something inside you<br>is trying to protect, secure, avoid, or feel safe."</div>
+    <div class="gl-c" style="opacity:0.35;"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;font-weight:300;color:rgba(248,244,238,0.45);line-height:1.85;margin-top:32px;">"The more awareness you bring to the pattern…"<br>"The more freedom you have to choose something different."</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.35);">The Courage to Know · Week 2</div>
+</div>
+<!-- ═══════════════════════════════════════════════════════
+     WEEK 3 COVER
+═══════════════════════════════════════════════════════ -->
+<div class="page page-dark pb">
+  <div class="cover-eyebrow">The Courage to Know</div>
+  <div class="spacer"></div>
+  <div>
+    <div class="cover-week">Week Three</div>
+    <div class="cover-title">Understanding<br>Where the Pattern<br>Comes From</div>
+    <div class="gl-s"></div>
+    <div class="cover-tag mt16">The Story Beneath<br>the Reaction</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.38);">Week Three of Six</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:44px;color:rgba(184,154,90,0.22);letter-spacing:0.12em;">☽ ☉ ↑</div>
+  </div>
+</div>
+
+<!-- WEEK 3 DIVIDER -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div>
+    <div class="eyebrow eyebrow-dk mb24">Week Three</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:28px;">Where the Pattern<br>Comes From</div>
+    <div class="gl-s"></div>
+    <div class="qblock qblock-dk mt32"><div class="qtext qtext-dk">"Some of your patterns were learned long before you became a mother."</div></div>
+  </div>
+  <div class="spacer"></div>
+  <span class="pn">22</span>
+</div>
+
+<!-- OPENING TEACHING -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Opening Teaching</div>
+  <h2>The Pattern Didn't Start Today</h2>
+  <div class="gl"></div>
+  <p class="body mb16">One of the biggest shifts that can happen in self-awareness is realizing: the reaction you're having today may not have started today.</p>
+  <p class="body mb16">Sometimes we believe we're reacting to our child — their attitude, their choices, their independence. But often, the intensity of our reaction comes from something older. An emotional script. A belief. A family pattern. A role we learned to play.</p>
+  <div class="qblock mt24 mb24"><div class="qtext">This isn't about blaming your parents.<br>It's about understanding your programming.</div></div>
+  <p class="body mb16">Because awareness creates choice. And once you understand where the pattern comes from… you no longer have to keep repeating it automatically.</p>
+  <div class="gl mt32"></div>
+  <div class="eyebrow mt28">Before We Go Further</div>
+  <p class="body mb16">This work is not about blaming your mother, your father, or your childhood. Every family carries patterns. Every generation passes down beliefs. Every parent does the best they can with the awareness they have.</p>
+  <p class="body">This work is simply about seeing what was modeled. What was normalized. What became familiar. Because what feels familiar often becomes what we repeat — even when we don't want to.</p>
+  <span class="pn">23</span>
+</div>
+
+<!-- 4TH HOUSE -->
+<div class="page pb">
+  <div class="eyebrow">Astrology Deep Dive</div>
+  <h2>The 4th House —<br>Your Emotional Foundation</h2>
+  <div class="gl"></div>
+  <p class="body mb24">In astrology, the 4th House represents your home, family, roots, emotional foundations, and the private self. This house often reveals: what felt normal growing up, how emotions were handled, what love looked like, and what wasn't talked about.</p>
+  <div class="tl">"The 4th House doesn't tell us what happened."<br>"It tells us the emotional atmosphere we learned from."</div>
+  <div class="gl mt32"></div>
+  <div class="eyebrow mt24 mb20">4th House Through the Signs — Emotional Atmosphere</div>
+  <div class="sign-cols">
+    <div>
+      <div class="sign-entry"><div class="sign-name">Aries 4th House</div><div class="sign-desc">Independence was emphasized. You may have learned to be self-reliant early.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus 4th House</div><div class="sign-desc">Stability and consistency were important. Comfort may have been valued over emotional discussion.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini 4th House</div><div class="sign-desc">Communication was central. Feelings may have been discussed intellectually rather than emotionally.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer 4th House</div><div class="sign-desc">Family bonds and emotional closeness were emphasized. Strong emotional attachments shaped early life.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo 4th House</div><div class="sign-desc">Recognition and pride were important themes. You may have learned to perform or shine within the family.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo 4th House</div><div class="sign-desc">Helpfulness and doing things correctly were valued. Perfectionism can develop here.</div></div>
+    </div>
+    <div>
+      <div class="sign-entry"><div class="sign-name">Libra 4th House</div><div class="sign-desc">Keeping peace was important. Conflict may have been minimized or avoided.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio 4th House</div><div class="sign-desc">Emotions may have been intense, private, or complicated. Trust and control themes can emerge.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius 4th House</div><div class="sign-desc">Freedom was emphasized. Emotional intensity may have been bypassed through positivity.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn 4th House</div><div class="sign-desc">Responsibility and maturity were important. You may have carried more than your share emotionally.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius 4th House</div><div class="sign-desc">Independence was encouraged. Emotional expression may have felt inconsistent or detached.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces 4th House</div><div class="sign-desc">Sensitivity was a strong theme. Boundaries may have been unclear.</div></div>
+    </div>
+  </div>
+  <span class="pn">24</span>
+</div>
+
+<!-- REFLECTION W3 -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Reflection</div>
+  <h2>My Emotional Foundation</h2>
+  <div class="gl"></div>
+  <p class="body mb28" style="max-width:480px;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.7;color:var(--text-lt);">When I think about my childhood home…</p>
+  <div class="write-block"><div class="prompt">What felt normal emotionally?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">How were emotions handled?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What emotions felt acceptable?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What emotions felt unsafe?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">25</span>
+</div>
+
+<!-- SATURN -->
+<div class="page pb">
+  <div class="eyebrow">Saturn — The Place We Feel Pressure</div>
+  <h2>The Weight You Carry</h2>
+  <div class="gl"></div>
+  <p class="body mb20">If the 4th House shows where we come from… Saturn shows where we feel pressure. Where we doubt ourselves. Where we fear getting it wrong. Where we believe we need to prove ourselves.</p>
+  <div class="tl">"Saturn is rarely where we feel naturally confident."<br>"It's where we learn wisdom through experience."</div>
+  <p class="body mt20 mb20">Many mothers experience Saturn as: "I should be doing more." "I should be better." "I should have handled that differently." Beneath that criticism is often a desire to love well — and a fear of falling short.</p>
+  <div class="gl mt28"></div>
+  <div class="eyebrow mt24 mb20">Saturn Through the Signs — The Pressure You Carry</div>
+  <div class="sign-cols">
+    <div>
+      <div class="sign-entry"><div class="sign-name">Aries Saturn</div><div class="sign-desc">Pressure to be brave and independent. Fear of appearing weak.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Saturn</div><div class="sign-desc">Pressure to create security. Fear of loss or uncertainty.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Saturn</div><div class="sign-desc">Pressure to understand everything. Fear of saying the wrong thing.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Saturn</div><div class="sign-desc">Pressure to care for everyone emotionally. Fear of emotional failure.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Saturn</div><div class="sign-desc">Pressure to succeed and be recognized. Fear of being unseen or unimportant.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Saturn</div><div class="sign-desc">Pressure to get it right. Fear of making mistakes.</div></div>
+    </div>
+    <div>
+      <div class="sign-entry"><div class="sign-name">Libra Saturn</div><div class="sign-desc">Pressure to keep everyone happy. Fear of conflict or disapproval.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Saturn</div><div class="sign-desc">Pressure to stay in control. Fear of vulnerability.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Saturn</div><div class="sign-desc">Pressure to know the answer. Fear of limitation.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Saturn</div><div class="sign-desc">Pressure to perform and achieve. Fear of failure.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Saturn</div><div class="sign-desc">Pressure to be different or self-sufficient. Fear of rejection.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Saturn</div><div class="sign-desc">Pressure to save, help, or heal. Fear of helplessness.</div></div>
+    </div>
+  </div>
+  <span class="pn">26</span>
+</div>
+
+<!-- KRISTIN W3 -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Personal Reflection</div>
+  <h2 style="margin-bottom:8px;">A Note from Kristin</h2>
+  <div class="kbox mt20">
+    <div class="kbox-label">Kristin's Reflection</div>
+    <div class="kbox-text">One of the biggest things astrology helped me understand was how much pressure I carried around motherhood.<br><br>I wasn't simply trying to be a good mom. I was trying to avoid being a bad one. And those are very different things.<br><br>I realized how often I measured myself through responsibility. Through performance. Through whether everyone else was okay. If my daughter was struggling… I felt responsible. If there was tension… I felt responsible.<br><br>Underneath all of it was a quiet fear: "What if I'm failing at the role that matters most?"<br><br>Understanding my Saturn didn't remove that pressure overnight. But it helped me see it. And once I could see it… I stopped believing every thought it whispered.</div>
+  </div>
+  <div class="gl mt28"></div>
+  <div class="eyebrow mt24">Pattern Recognition</div>
+  <p class="body mt16 mb20">Sometimes the pattern isn't the behavior. It's the belief underneath the behavior.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div class="scenario"><div class="scenario-title" style="font-size:14px;">"I have to fix this."</div><div class="scenario-body">May actually mean: "I don't feel safe when things are uncertain."</div></div>
+    <div class="scenario"><div class="scenario-title" style="font-size:14px;">"I need everyone to be okay."</div><div class="scenario-body">May actually mean: "I feel responsible for everyone's emotions."</div></div>
+    <div class="scenario"><div class="scenario-title" style="font-size:14px;">"If my child pulls away…"</div><div class="scenario-body">May actually mean: "I'm afraid of rejection."</div></div>
+    <div class="scenario"><div class="scenario-title" style="font-size:14px;">"I always do this."</div><div class="scenario-body">Try asking instead: "What is this trying to protect?"</div></div>
+  </div>
+  <span class="pn">27</span>
+</div>
+
+<!-- REFLECTION W3 DEEP -->
+<div class="page pb">
+  <div class="eyebrow">Reflection + Integration</div>
+  <h2>What May Not Have Started With Me</h2>
+  <div class="gl"></div>
+  <div class="write-block mt24"><div class="prompt">What pressure do I put on myself as a mother?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">When do I feel most afraid of getting it wrong?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What pattern do I recognize in myself? (control, people-pleasing, perfectionism, over-functioning, avoiding conflict…)</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">Where might I have learned it?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">How has it affected my motherhood?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div style="background:rgba(184,154,90,0.05);border:0.5px solid rgba(184,154,90,0.28);padding:22px 26px;margin-top:8px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--text-lt);line-height:1.8;"><strong style="font-style:normal;font-weight:500;color:var(--gold);">Reframe:</strong> Instead of "This is just who I am," try asking: "When did I learn this?" Instead of "Something is wrong with me," try asking: "What need is underneath this pattern?"</div>
+  </div>
+  <span class="pn">28</span>
+</div>
+
+<!-- WEEK 3 CLOSING -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div style="text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;font-weight:300;color:rgba(248,244,238,0.72);line-height:1.7;margin-bottom:36px;">"Awareness doesn't erase the past."<br>"But it changes your relationship with it."</div>
+    <div class="gl-c" style="opacity:0.35;"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;font-weight:300;color:rgba(248,244,238,0.45);line-height:1.85;margin-top:32px;">"The moment you can see a pattern…"<br>"You are no longer completely inside it."</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.35);">The Courage to Know · Week 3</div>
+</div>
+<!-- ═══════════════════════════════════════════════════════
+     WEEK 4 COVER
+═══════════════════════════════════════════════════════ -->
+<div class="page page-dark pb">
+  <div class="cover-eyebrow">The Courage to Know</div>
+  <div class="spacer"></div>
+  <div>
+    <div class="cover-week">Week Four</div>
+    <div class="cover-title">Understanding<br>How You Connect</div>
+    <div class="gl-s"></div>
+    <div class="cover-tag mt16">Communication, Love<br>+ Conflict</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.38);">Week Four of Six</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:44px;color:rgba(184,154,90,0.22);letter-spacing:0.12em;">☽ ☉ ↑</div>
+  </div>
+</div>
+
+<!-- WEEK 4 DIVIDER -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div>
+    <div class="eyebrow eyebrow-dk mb24">Week Four</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:28px;">Understanding<br>How You Connect</div>
+    <div class="gl-s"></div>
+    <div class="qblock qblock-dk mt32"><div class="qtext qtext-dk">"Connection isn't only about what you say."<br>"It's about how you naturally give, receive, and respond."</div></div>
+  </div>
+  <div class="spacer"></div>
+  <span class="pn">30</span>
+</div>
+
+<!-- OPENING TEACHING W4 -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Opening Teaching</div>
+  <h2>Why Good Intentions Don't Always Create Connection</h2>
+  <div class="gl"></div>
+  <p class="body mb16">One of the hardest parts of motherhood is realizing: you can deeply love your child and still misunderstand each other. You can have good intentions and still create disconnection. You can want closeness and accidentally create distance.</p>
+  <p class="body mb24">Not because you're doing something wrong — but because every person experiences communication, affection, and conflict differently.</p>
+  <div class="qblock mb24"><div class="qtext">This week is about understanding your natural relationship style.<br>Not to judge it. Not to change who you are.<br>But to become more conscious of how you show up in connection.</div></div>
+  <div class="gl mt24"></div>
+  <div class="eyebrow mt28">The Relationship Planets</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:0.5px solid rgba(184,154,90,0.28);margin-top:20px;">
+    <div style="padding:22px 20px;border-right:0.5px solid rgba(184,154,90,0.25);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(184,154,90,0.4);margin-bottom:10px;">☿</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--gold);margin-bottom:6px;">Mercury</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">How you communicate. How you think and process. How your message gets delivered.</div>
+    </div>
+    <div style="padding:22px 20px;border-right:0.5px solid rgba(184,154,90,0.25);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(184,154,90,0.4);margin-bottom:10px;">♀</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--gold);margin-bottom:6px;">Venus</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">How you connect and experience love. What helps you feel valued. How you express affection.</div>
+    </div>
+    <div style="padding:22px 20px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(184,154,90,0.4);margin-bottom:10px;">♂</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--gold);margin-bottom:6px;">Mars</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">How you respond when tension arises. How you handle conflict and express frustration.</div>
+    </div>
+  </div>
+  <span class="pn">31</span>
+</div>
+
+<!-- MERCURY -->
+<div class="page pb">
+  <div class="eyebrow">Mercury — How You Communicate</div>
+  <h2>Communication Style Guide</h2>
+  <div class="gl"></div>
+  <div class="tl mt16 mb24">"Mercury is not what you mean."<br>"It's how your message gets delivered."</div>
+  <div class="sign-cols">
+    <div>
+      <div class="sign-entry"><div class="sign-name">Aries Mercury</div><div class="sign-desc">Direct. Fast. Honest. Growth: Pause before responding.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Mercury</div><div class="sign-desc">Steady. Practical. Grounded. Growth: Stay open to new perspectives.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Mercury</div><div class="sign-desc">Curious. Verbal. Expressive. Growth: Slow down and listen fully.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Mercury</div><div class="sign-desc">Emotional. Protective. Heart-centered. Growth: Separate feelings from facts.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Mercury</div><div class="sign-desc">Confident. Expressive. Passionate. Growth: Create space for others' voices.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Mercury</div><div class="sign-desc">Precise. Helpful. Detailed. Growth: Avoid over-correcting.</div></div>
+    </div>
+    <div>
+      <div class="sign-entry"><div class="sign-name">Libra Mercury</div><div class="sign-desc">Diplomatic. Fair-minded. Relational. Growth: Speak honestly even when uncomfortable.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Mercury</div><div class="sign-desc">Insightful. Observant. Private. Growth: Share what you're feeling.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Mercury</div><div class="sign-desc">Big-picture. Honest. Optimistic. Growth: Be mindful of delivery.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Mercury</div><div class="sign-desc">Structured. Thoughtful. Practical. Growth: Allow emotional conversations.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Mercury</div><div class="sign-desc">Objective. Innovative. Independent. Growth: Stay emotionally present.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Mercury</div><div class="sign-desc">Intuitive. Creative. Compassionate. Growth: Be clear and direct when needed.</div></div>
+    </div>
+  </div>
+  <div class="write-block mt28"><div class="prompt">When conflict happens, how do I usually communicate?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What communication habit may create disconnection?</div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">32</span>
+</div>
+
+<!-- VENUS -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Venus — How You Give and Receive Love</div>
+  <h2>Connection Needs Guide</h2>
+  <div class="gl"></div>
+  <div class="tl mt16 mb24">"Venus reveals what love feels like to you."</div>
+  <div class="sign-cols">
+    <div>
+      <div class="sign-entry"><div class="sign-name">Aries Venus</div><div class="sign-desc">Needs excitement and honesty. Can become impatient with emotional uncertainty.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Venus</div><div class="sign-desc">Needs consistency and reliability. Feels loved through stability.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Venus</div><div class="sign-desc">Needs conversation and engagement. Feels connected through communication.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Venus</div><div class="sign-desc">Needs emotional closeness and reassurance. Feels loved through care and nurturing.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Venus</div><div class="sign-desc">Needs appreciation and warmth. Feels loved when recognized.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Venus</div><div class="sign-desc">Needs thoughtfulness and effort. Feels loved through practical support.</div></div>
+    </div>
+    <div>
+      <div class="sign-entry"><div class="sign-name">Libra Venus</div><div class="sign-desc">Needs harmony and partnership. Feels loved through mutual consideration.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Venus</div><div class="sign-desc">Needs trust and depth. Feels loved through emotional honesty.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Venus</div><div class="sign-desc">Needs freedom and authenticity. Feels loved through openness.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Venus</div><div class="sign-desc">Needs reliability and commitment. Feels loved through consistency.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Venus</div><div class="sign-desc">Needs friendship and independence. Feels loved through acceptance.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Venus</div><div class="sign-desc">Needs compassion and emotional connection. Feels loved through tenderness.</div></div>
+    </div>
+  </div>
+  <span class="pn">33</span>
+</div>
+
+<!-- KRISTIN W4 + VENUS REFLECTION -->
+<div class="page pb">
+  <div class="eyebrow">Personal Reflection</div>
+  <div class="kbox">
+    <div class="kbox-label">Kristin's Reflection</div>
+    <div class="kbox-text">One of the most revealing placements in my chart is Venus in Pisces in the 4th House.<br><br>For years, I equated love with sacrifice. If someone needed help, I helped. If someone was struggling, I stepped in. If someone was uncomfortable, I tried to make it easier.<br><br>What I didn't realize was that I was often confusing love with responsibility.<br><br>Love without boundaries becomes exhaustion. And connection without honesty becomes resentment.</div>
+  </div>
+  <div class="gl mt28"></div>
+  <div class="write-block mt24"><div class="prompt">How do I naturally show love?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">How do I know when I feel loved?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">Where might I expect others to love me the way I love them?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">34</span>
+</div>
+
+<!-- MARS CONFLICT + CONNECTION MAP -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Mars — How You Handle Conflict</div>
+  <h2>Conflict Style Guide</h2>
+  <div class="gl"></div>
+  <div class="tl mt16 mb20">"Mars is what comes out when your patience runs out."</div>
+  <div class="sign-cols">
+    <div>
+      <div class="sign-entry"><div class="sign-name">Aries Mars</div><div class="sign-desc">Direct. Immediate. Reactive. Growth: Pause before responding.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Mars</div><div class="sign-desc">Slow to react. Can become stubborn when pushed. Growth: Address issues earlier.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Mars</div><div class="sign-desc">Processes through words. Growth: Listen before debating.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Mars</div><div class="sign-desc">Protective and emotional. Growth: Express needs directly.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Mars</div><div class="sign-desc">Passionate and expressive. Growth: Separate disagreement from rejection.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Mars</div><div class="sign-desc">Corrects and improves. Growth: Focus on connection before correction.</div></div>
+    </div>
+    <div>
+      <div class="sign-entry"><div class="sign-name">Libra Mars</div><div class="sign-desc">Avoids conflict. Growth: Speak clearly and directly.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Mars</div><div class="sign-desc">Intense and controlled. Growth: Share vulnerability sooner.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Mars</div><div class="sign-desc">Blunt and independent. Growth: Consider emotional impact.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Mars</div><div class="sign-desc">Controlled and authoritative. Growth: Lead without over-controlling.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Mars</div><div class="sign-desc">Detached and unconventional. Growth: Stay emotionally engaged.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Mars</div><div class="sign-desc">Avoidant and sensitive. Growth: Address issues directly.</div></div>
+    </div>
+  </div>
+  <div class="gl mt28"></div>
+  <div class="eyebrow mt24">Connection Map — Think About a Recent Disagreement</div>
+  <div class="write-block mt20"><div class="prompt">What happened?</div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">How did I communicate? (Mercury)</div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What need was underneath it? (Venus)</div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">How did I react? (Mars)</div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What would connection have looked like instead?</div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">35</span>
+</div>
+
+<!-- WEEK 4 CLOSING -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div style="text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;font-weight:300;color:rgba(248,244,238,0.72);line-height:1.7;margin-bottom:36px;">"Connection begins with understanding how you naturally<br>communicate, love, and respond."</div>
+    <div class="gl-c" style="opacity:0.35;"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;font-weight:300;color:rgba(248,244,238,0.45);line-height:1.85;margin-top:32px;">"Awareness doesn't change your personality."<br>"It changes your choices."</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.35);">The Courage to Know · Week 4</div>
+</div>
+<!-- ═══════════════════════════════════════════════════════
+     WEEK 5 COVER
+═══════════════════════════════════════════════════════ -->
+<div class="page page-dark pb">
+  <div class="cover-eyebrow">The Courage to Know</div>
+  <div class="spacer"></div>
+  <div>
+    <div class="cover-week">Week Five</div>
+    <div class="cover-title">Understanding<br>Your Needs</div>
+    <div class="gl-s"></div>
+    <div class="cover-tag mt16">The 3 Step Reset™</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.38);">Week Five of Six</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:44px;color:rgba(184,154,90,0.22);letter-spacing:0.12em;">☽ ☉ ↑</div>
+  </div>
+</div>
+
+<!-- WEEK 5 DIVIDER -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div>
+    <div class="eyebrow eyebrow-dk mb24">Week Five</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:28px;">Understanding<br>Your Needs</div>
+    <div class="gl-s"></div>
+    <div class="qblock qblock-dk mt32"><div class="qtext qtext-dk">"Most reactions begin with an unmet need."</div></div>
+  </div>
+  <div class="spacer"></div>
+  <span class="pn">38</span>
+</div>
+
+<!-- OPENING W5 -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Opening</div>
+  <h2>Slowing the Process Down</h2>
+  <div class="gl"></div>
+  <p class="body mb16">For most of us, emotions move quickly. Something happens. We react. And only later do we realize what we were actually feeling.</p>
+  <p class="body mb24">This week is about slowing the process down. Not to become emotionless. Not to become perfect. But to become aware. Because awareness gives you options. And options create freedom.</p>
+  <div class="gl mt16"></div>
+  <div class="eyebrow mt28">The 3 Step Reset™</div>
+  <h3 style="font-size:22px;font-weight:300;margin-bottom:24px;">Notice · Name · Need</h3>
+  <div style="border:0.5px solid rgba(184,154,90,0.3);">
+    <div style="padding:26px 28px;border-bottom:0.5px solid rgba(184,154,90,0.25);">
+      <div style="display:flex;gap:20px;align-items:flex-start;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(184,154,90,0.3);line-height:1;flex-shrink:0;">01</div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--gold);margin-bottom:8px;">Notice</div><div class="body">What am I experiencing right now? Emotion. Tension. Reaction. Urgency.</div></div>
+      </div>
+    </div>
+    <div style="padding:26px 28px;border-bottom:0.5px solid rgba(184,154,90,0.25);">
+      <div style="display:flex;gap:20px;align-items:flex-start;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(184,154,90,0.3);line-height:1;flex-shrink:0;">02</div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--gold);margin-bottom:8px;">Name</div><div class="body">What am I actually feeling? Angry. Hurt. Rejected. Overwhelmed. Anxious. Disappointed.</div></div>
+      </div>
+    </div>
+    <div style="padding:26px 28px;">
+      <div style="display:flex;gap:20px;align-items:flex-start;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(184,154,90,0.3);line-height:1;flex-shrink:0;">03</div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--gold);margin-bottom:8px;">Need</div><div class="body">What do I need right now? Support? Space? Reassurance? Rest? Understanding? Boundaries?</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="tl mt24">"Most of the time, your Need points back to your Moon."</div>
+  <span class="pn">39</span>
+</div>
+
+<!-- MOON NEEDS + REACTION vs NEED -->
+<div class="page pb">
+  <div class="eyebrow">Reference Guides</div>
+  <h2>What Your Moon May Need</h2>
+  <div class="gl"></div>
+  <div class="two-col mt20">
+    <div>
+      <div class="eyebrow mb16">Moon Sign → Core Need</div>
+      <div class="sign-entry"><div class="sign-name">Aries Moon</div><div class="sign-desc">Space. Movement. Autonomy.</div></div>
+      <div class="sign-entry"><div class="sign-name">Taurus Moon</div><div class="sign-desc">Calm. Stability. Predictability.</div></div>
+      <div class="sign-entry"><div class="sign-name">Gemini Moon</div><div class="sign-desc">Conversation. Perspective. Mental clarity.</div></div>
+      <div class="sign-entry"><div class="sign-name">Cancer Moon</div><div class="sign-desc">Comfort. Connection. Reassurance.</div></div>
+      <div class="sign-entry"><div class="sign-name">Leo Moon</div><div class="sign-desc">Recognition. Appreciation. Warmth.</div></div>
+      <div class="sign-entry"><div class="sign-name">Virgo Moon</div><div class="sign-desc">Order. Clarity. Support.</div></div>
+      <div class="sign-entry"><div class="sign-name">Libra Moon</div><div class="sign-desc">Harmony. Fairness. Connection.</div></div>
+      <div class="sign-entry"><div class="sign-name">Scorpio Moon</div><div class="sign-desc">Trust. Honesty. Privacy.</div></div>
+      <div class="sign-entry"><div class="sign-name">Sagittarius Moon</div><div class="sign-desc">Freedom. Perspective. Room to breathe.</div></div>
+      <div class="sign-entry"><div class="sign-name">Capricorn Moon</div><div class="sign-desc">Competence. Reliability. Structure.</div></div>
+      <div class="sign-entry"><div class="sign-name">Aquarius Moon</div><div class="sign-desc">Space. Independence. Understanding.</div></div>
+      <div class="sign-entry"><div class="sign-name">Pisces Moon</div><div class="sign-desc">Compassion. Rest. Gentleness.</div></div>
+    </div>
+    <div>
+      <div class="eyebrow mb16">Reaction → Actual Need</div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Push →</div><div class="sign-name">Freedom</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Dig in →</div><div class="sign-name">Safety</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Over-talk →</div><div class="sign-name">Understanding</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Protect →</div><div class="sign-name">Connection</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Defend →</div><div class="sign-name">Recognition</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Fix →</div><div class="sign-name">Order</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Appease →</div><div class="sign-name">Harmony</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Control →</div><div class="sign-name">Trust</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Escape →</div><div class="sign-name">Freedom</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Manage →</div><div class="sign-name">Security</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Detach →</div><div class="sign-name">Space</div></div>
+      <div class="sign-entry"><div class="sign-name" style="color:var(--text-lt);font-size:12px;font-weight:400;">Withdraw →</div><div class="sign-name">Compassion</div></div>
+    </div>
+  </div>
+  <span class="pn">40</span>
+</div>
+
+<!-- KRISTIN W5 -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Personal Reflection</div>
+  <div class="kbox mt16">
+    <div class="kbox-label">Kristin's Reflection</div>
+    <div class="kbox-text">For years I thought control was responsibility. I thought being prepared was wisdom. I thought anticipating problems was helping.<br><br>But eventually I realized something uncomfortable.<br><br>Control was often fear wearing a responsible outfit.<br><br>The more uncertain I felt… the more I tightened. The more I feared losing connection… the more I tried to manage outcomes. And the more I managed… the more resistance I created.<br><br>The need wasn't control. The need was safety.<br><br>Once I understood that, everything began to change.</div>
+  </div>
+  <div class="gl mt32"></div>
+  <div class="eyebrow mt28">Practice — The 3 Step Reset™</div>
+  <p class="body mb24" style="max-width:480px;">Think about a recent trigger. Walk through it honestly using the 3 steps.</p>
+  <div class="write-block"><div class="prompt">01 · Notice — What happened? What were you experiencing?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">02 · Name — What were you actually feeling?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">03 · Need — What did you actually need?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What would have happened if you honored the need first?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">41</span>
+</div>
+
+<!-- WEEK 5 CLOSING -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div style="text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;font-weight:300;color:rgba(248,244,238,0.72);line-height:1.55;margin-bottom:36px;">"Your reaction is rarely<br>the deepest truth."</div>
+    <div class="gl-c" style="opacity:0.35;"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;font-weight:300;color:rgba(248,244,238,0.45);line-height:1.85;margin-top:32px;">"Your need usually is."</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.35);">The Courage to Know · Week 5</div>
+</div>
+<!-- ═══════════════════════════════════════════════════════
+     WEEK 6 COVER
+═══════════════════════════════════════════════════════ -->
+<div class="page page-dark pb">
+  <div class="cover-eyebrow">The Courage to Know</div>
+  <div class="spacer"></div>
+  <div>
+    <div class="cover-week">Week Six</div>
+    <div class="cover-title">Understanding<br>the Relationship</div>
+    <div class="gl-s"></div>
+    <div class="cover-tag mt16">Bringing Awareness<br>Into Connection</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.38);">Week Six of Six</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:44px;color:rgba(184,154,90,0.22);letter-spacing:0.12em;">☽ ☉ ↑</div>
+  </div>
+</div>
+
+<!-- WEEK 6 DIVIDER -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div>
+    <div class="eyebrow eyebrow-dk mb24">Week Six</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:28px;">Understanding<br>the Relationship</div>
+    <div class="gl-s"></div>
+    <div class="qblock qblock-dk mt32"><div class="qtext qtext-dk">"The goal is not to fix your child."<br>"The goal is to understand yourself well enough<br>to show up differently."</div></div>
+  </div>
+  <div class="spacer"></div>
+  <span class="pn">44</span>
+</div>
+
+<!-- OPENING TEACHING W6 -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Opening Teaching</div>
+  <h2>What Changes First</h2>
+  <div class="gl"></div>
+  <p class="body mb16">Throughout this course, we've focused on you. Your chart. Your patterns. Your needs. Your reactions. And that's intentional.</p>
+  <p class="body mb24">Because many parenting approaches start by analyzing the child. This course begins somewhere different. It begins with awareness. Because the relationship changes when one person becomes more conscious.</p>
+  <div style="border:0.5px solid rgba(184,154,90,0.28);margin:24px 0;">
+    <div style="padding:24px 26px;border-bottom:0.5px solid rgba(184,154,90,0.18);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">What changes first</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;">
+        <div class="body"><span class="star"></span>Your awareness</div>
+        <div class="body"><span class="star"></span>Your language</div>
+        <div class="body"><span class="star"></span>Your reactions</div>
+        <div class="body"><span class="star"></span>Your expectations</div>
+        <div class="body"><span class="star"></span>Your boundaries</div>
+        <div class="body"><span class="star"></span>Your willingness to pause</div>
+      </div>
+    </div>
+    <div style="padding:20px 26px;text-align:center;">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--text-lt);">And often… that changes everything.</div>
+    </div>
+  </div>
+  <div class="gl mt20"></div>
+  <div class="eyebrow mt28">The Courage Method™</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:0.5px solid rgba(184,154,90,0.28);margin-top:20px;">
+    <div style="padding:22px 20px;border-right:0.5px solid rgba(184,154,90,0.25);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--gold);margin-bottom:8px;">Awareness</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">See the pattern.</div>
+    </div>
+    <div style="padding:22px 20px;border-right:0.5px solid rgba(184,154,90,0.25);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--gold);margin-bottom:8px;">Understanding</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">Hold it with compassion.</div>
+    </div>
+    <div style="padding:22px 20px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--gold);margin-bottom:8px;">Choice</div>
+      <div style="font-size:12px;font-weight:300;color:var(--text-lt);line-height:1.7;">Respond differently.</div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--text-lt);letter-spacing:0.05em;">Before: Trigger → Reaction &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; Now: Trigger → Awareness → Choice</div>
+  <span class="pn">45</span>
+</div>
+
+<!-- COMPATIBILITY REFLECTION -->
+<div class="page pb">
+  <div class="eyebrow">When Your Child Is Different Than You</div>
+  <h2>Understanding Differences</h2>
+  <div class="gl"></div>
+  <p class="body mb24">One of the gifts of astrology is helping us understand differences — not as problems, but as different ways of moving through the world. Your child may not need what you need. They may not process emotions the way you do. And that doesn't mean either of you is wrong.</p>
+  <div class="gl mt16"></div>
+  <div class="eyebrow mt28 mb24">Compatibility Reflection</div>
+  <div class="write-block"><div class="prompt">What qualities do I admire in my child?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What qualities challenge me?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What qualities do I wish were different?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What if those qualities are part of who they are — not a problem to be solved?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">46</span>
+</div>
+
+<!-- KRISTIN W6 + WHAT I'M LEARNING -->
+<div class="page page-cream pb">
+  <div class="eyebrow">Personal Reflection</div>
+  <div class="kbox mt8">
+    <div class="kbox-label">Kristin's Reflection</div>
+    <div class="kbox-text">One of the hardest truths I had to face was this:<br><br>I offered love through closeness. My daughter often expressed love through independence.<br><br>I interpreted distance as rejection. She experienced space as freedom.<br><br>Neither of us was wrong. We simply spoke different emotional languages.<br><br>The more I understood myself… the less I needed her to become someone different. And the more room I had to love who she already was.</div>
+  </div>
+  <div class="gl mt28"></div>
+  <div class="eyebrow mt24">What I'm Learning About Myself</div>
+  <div class="write-block mt20"><div class="prompt">Because of this course, I now understand…</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">One pattern I am becoming more aware of…</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">One emotional need I want to honor more often…</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">One relationship pattern I want to change…</div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">47</span>
+</div>
+
+<!-- WHAT COURAGE LOOKS LIKE + FINAL INTEGRATION -->
+<div class="page pb">
+  <div class="eyebrow">What Courage Looks Like Now</div>
+  <h2 style="margin-bottom:20px;">Carrying This Forward</h2>
+  <div style="background:rgba(184,154,90,0.05);border:0.5px solid rgba(184,154,90,0.28);padding:28px 32px;margin-bottom:32px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--text);line-height:2.0;">
+      Courage is not becoming perfect.<br>
+      Courage is staying aware.<br>
+      Courage is staying curious.<br>
+      Courage is noticing the pattern.<br>
+      Courage is taking responsibility without shame.<br>
+      Courage is creating new choices — again and again.
+    </div>
+  </div>
+  <div class="gl"></div>
+  <div class="eyebrow mt28">Final Integration</div>
+  <div class="write-block mt20"><div class="prompt">What has been my biggest insight from this experience?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What am I taking with me?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <div class="write-block"><div class="prompt">What do I want to remember when old patterns return?</div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+  <span class="pn">48</span>
+</div>
+
+<!-- LETTER TO MYSELF -->
+<div class="page page-cream pb">
+  <div class="eyebrow">A Letter to Yourself</div>
+  <h2>Dear Me,</h2>
+  <div class="gl"></div>
+  <p class="body mb28" style="max-width:460px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--text-lt);">As I move forward in motherhood…</p>
+  <div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  <div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  <div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  <div class="wl"></div><div class="wl"></div><div class="wl"></div>
+  <div style="margin-top:48px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--text-lt);">With love,</div>
+  <div class="wl" style="max-width:240px;margin-top:32px;"></div>
+  <span class="pn">49</span>
+</div>
+
+<!-- FINAL CLOSING PAGE -->
+<div class="page page-dark pb">
+  <div class="spacer"></div>
+  <div style="text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:38px;color:rgba(184,154,90,0.25);letter-spacing:0.18em;margin-bottom:52px;">☽ ☉ ↑</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;font-weight:300;color:rgba(248,244,238,0.7);line-height:1.7;margin-bottom:36px;">"You do not need to become a different person."<br>"You simply need to understand yourself<br>well enough to choose differently."</div>
+    <div class="gl-c" style="opacity:0.3;"></div>
+    <div style="margin-top:36px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:rgba(184,154,90,0.5);">The Courage to Know</div>
+    <div style="margin-top:16px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:rgba(184,154,90,0.4);letter-spacing:0.08em;">Awareness · Understanding · Choice</div>
+  </div>
+  <div class="spacer"></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(184,154,90,0.32);">The journey begins with you.</div>
+    <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.2em;color:rgba(184,154,90,0.28);">© Kristin</div>
+  </div>
+</div>
+</body></html>
